@@ -1,0 +1,221 @@
+:root {
+    --color-bg: #0a0e17;
+    --color-surface: #141b2d;
+    --color-accent: #00e5ff;
+    --color-text: #e2e8f0;
+    --color-muted: #94a3b8;
+    --border-radius: 12px;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content-wrapper {
+    flex: 1;
+}
+
+/* Navbar */
+.navbar {
+    background: rgba(10, 14, 23, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.text-accent {
+    color: var(--color-accent) !important;
+}
+
+.bg-surface {
+    background-color: var(--color-surface) !important;
+}
+
+/* Cards */
+.card {
+    background-color: var(--color-surface);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 229, 255, 0.2);
+}
+
+.card-title {
+    color: #fff;
+}
+
+.card-text {
+    color: var(--color-muted);
+}
+
+/* Badges */
+.badge-launch { background-color: #e74c3c; }
+.badge-eclipse { background-color: #9b59b6; }
+.badge-meteor_shower { background-color: #f1c40f; color: #000; }
+.badge-conjunction { background-color: #3498db; }
+.badge-iss_pass { background-color: #2ecc71; }
+.badge-other { background-color: #95a5a6; }
+
+/* CSS Tooltip on event type badges */
+.badge[data-tooltip] {
+    position: relative;
+    cursor: help;
+}
+.badge[data-tooltip]::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    color: #000;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s;
+}
+.badge[data-tooltip]:hover::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Hero Section / Starfield Gradient */
+.hero-section {
+    position: relative;
+    padding: 150px 0 100px;
+    background: linear-gradient(to bottom, #000428, var(--color-bg));
+    text-align: center;
+    overflow: hidden;
+}
+
+/* CSS Animation Starfield */
+.stars, .stars::before, .stars::after {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 1px; height: 1px;
+    background: transparent;
+    box-shadow: 10px 20px #fff, 100px 50px #fff, 200px 150px #fff, 300px 80px #fff, 400px 200px #fff, 500px 120px #fff, 600px 250px #fff, 700px 90px #fff, 800px 300px #fff, 900px 50px #fff;
+    animation: twinkle 5s infinite ease-in-out alternate;
+}
+.stars::before {
+    content: "";
+    box-shadow: 50px 100px #fff, 150px 200px #fff, 250px 50px #fff, 350px 300px #fff, 450px 100px #fff, 550px 150px #fff, 650px 80px #fff, 750px 200px #fff, 850px 120px #fff, 950px 250px #fff;
+    animation-delay: -2s;
+}
+.stars::after {
+    content: "";
+    box-shadow: 20px 300px #fff, 120px 80px #fff, 220px 250px #fff, 320px 100px #fff, 420px 150px #fff, 520px 50px #fff, 620px 200px #fff, 720px 120px #fff, 820px 300px #fff, 920px 90px #fff;
+    animation-delay: -4s;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+/* Decorative Stars via Pseudo Elements */
+.decorative-heading {
+    position: relative;
+    display: inline-block;
+}
+.decorative-heading::before,
+.decorative-heading::after {
+    content: "✦";
+    color: var(--color-accent);
+    margin: 0 10px;
+    font-size: 0.8em;
+    vertical-align: middle;
+}
+
+/* CSS Grid for Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+.gallery-item {
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    aspect-ratio: 1;
+}
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Pure CSS Lightbox */
+.lightbox {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1050;
+    transition: opacity 0.3s;
+}
+.lightbox:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border: 2px solid var(--color-accent);
+    border-radius: var(--border-radius);
+}
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+/* Forms */
+.form-control, .form-select {
+    background-color: #1b263b;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--color-text);
+}
+.form-control:focus, .form-select:focus {
+    background-color: #1b263b;
+    color: #fff;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 0.25rem rgba(0, 229, 255, 0.25);
+}
+
+/* Utilities */
+[class^="col-"]:nth-child(even) .card {
+    /* Example of nth-child usage for variance if needed */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 100px 0 50px;
+    }
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
