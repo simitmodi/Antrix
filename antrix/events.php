@@ -50,15 +50,15 @@ include 'includes/header.php';
                     <div class="card-body">
                         <span class="badge badge-<?php echo htmlspecialchars($event['event_type']); ?> mb-2" data-tooltip="<?php echo htmlspecialchars($event['event_type']); ?>"><?php echo htmlspecialchars(ucwords(str_replace('_', ' ', $event['event_type']))); ?></span>
                         <h5 class="card-title"><?php echo htmlspecialchars($event['title']); ?></h5>
-                        <p class="card-text text-muted small"><i class="bi bi-calendar"></i> <?php echo date('F j, Y, g:i a', strtotime($event['event_date'])); ?></p>
-                        <p class="card-text text-muted small"><i class="bi bi-geo-alt"></i> <?php echo htmlspecialchars($event['location']); ?></p>
+                        <p class="card-text text-white-50 small"><i class="bi bi-calendar"></i> <?php echo date('F j, Y, g:i a', strtotime($event['event_date'])); ?></p>
+                        <p class="card-text text-white-50 small"><i class="bi bi-geo-alt"></i> <?php echo htmlspecialchars($event['location']); ?></p>
                         <a href="event-detail.php?id=<?php echo $event['id']; ?>" class="btn btn-outline-info btn-sm mt-2">View Details</a>
                     </div>
                 </div>
             </div>
         <?php endforeach; ?>
         <?php if(empty($events)): ?>
-            <p class="text-center text-muted">No events found.</p>
+            <p class="text-center text-white-50">No events found.</p>
         <?php endif; ?>
     </div>
 

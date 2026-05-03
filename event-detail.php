@@ -50,7 +50,7 @@ include 'includes/header.php';
                     <h1 class="card-title text-accent mb-4 fw-bold"><?php echo htmlspecialchars($event['title']); ?></h1>
                     
                     <div class="row mb-4">
-                        <div class="col-md-6 text-muted">
+                        <div class="col-md-6 text-white-50">
                             <p class="mb-2"><i class="bi bi-calendar-event me-2"></i> <?php echo $event_date_formatted; ?></p>
                             <p class="mb-0"><i class="bi bi-geo-alt me-2"></i> <?php echo htmlspecialchars($event['location']); ?></p>
                         </div>
@@ -78,7 +78,7 @@ include 'includes/header.php';
                                 <div class="col-8">
                                     <div class="card-body py-2 pe-2">
                                         <h6 class="card-title mb-1 text-white text-truncate"><?php echo htmlspecialchars($rel['title']); ?></h6>
-                                        <p class="card-text small text-muted mb-1"><?php echo date('M d, Y', strtotime($rel['event_date'])); ?></p>
+                                        <p class="card-text small text-white-50 mb-1"><?php echo date('M d, Y', strtotime($rel['event_date'])); ?></p>
                                         <a href="event-detail.php?id=<?php echo $rel['id']; ?>" class="text-info small text-decoration-none">View Details</a>
                                     </div>
                                 </div>
@@ -87,7 +87,7 @@ include 'includes/header.php';
                     </div>
                 <?php endforeach; ?>
                 <?php if(empty($related_events)): ?>
-                    <p class="text-muted">No related events found.</p>
+                    <p class="text-white-50">No related events found.</p>
                 <?php endif; ?>
             </div>
         </div>

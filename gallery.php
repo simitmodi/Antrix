@@ -40,7 +40,7 @@ include 'includes/header.php';
             </div>
         <?php endforeach; ?>
         <?php if(empty($images)): ?>
-            <p class="text-center text-muted">No images found in the gallery.</p>
+            <p class="text-center text-white-50">No images found in the gallery.</p>
         <?php endif; ?>
     </div>
 </div>

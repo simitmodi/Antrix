@@ -77,7 +77,7 @@ include 'includes/header.php';
         <div class="col-lg-8">
             <div class="card p-4 bg-surface border-secondary shadow-lg">
                 <h2 class="text-accent text-center mb-4">Submit a Space Event</h2>
-                <p class="text-muted text-center mb-4">Contribute to the cosmic calendar! Your submission will be reviewed by our team.</p>
+                <p class="text-white-50 text-center mb-4">Contribute to the cosmic calendar! Your submission will be reviewed by our team.</p>
                 
                 <?php if ($error): ?>
                     <div class="alert alert-danger"><?php echo htmlspecialchars($error); ?></div>
@@ -122,8 +122,8 @@ include 'includes/header.php';
 
                     <div class="mb-4">
                         <label for="image" class="form-label text-white">Upload Event Image</label>
-                        <input class="form-control text-muted" type="file" id="image" name="image" accept="image/jpeg, image/png, image/gif" required>
-                        <div class="form-text text-muted">Max size: 2MB. Formats: JPG, PNG, GIF.</div>
+                        <input class="form-control" type="file" id="image" name="image" accept="image/jpeg, image/png, image/gif" required>
+                        <div class="form-text text-white-50">Max size: 2MB. Formats: JPG, PNG, GIF.</div>
                         <div id="image-error" class="text-danger small mt-1"></div>
                     </div>
 

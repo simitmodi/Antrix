@@ -27,7 +27,7 @@ include 'includes/header.php';
                     <img src="<?php echo BASE_URL . htmlspecialchars($news['image_path']); ?>" class="card-img-top" alt="News Image" style="height:200px; object-fit:cover;">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-white"><?php echo htmlspecialchars($news['title']); ?></h5>
-                        <p class="card-text text-muted small"><i class="bi bi-clock"></i> <?php echo date('M d, Y', strtotime($news['published_at'])); ?></p>
+                        <p class="card-text text-white-50 small"><i class="bi bi-clock"></i> <?php echo date('M d, Y', strtotime($news['published_at'])); ?></p>
                         <p class="card-text flex-grow-1 text-light">
                             <?php echo htmlspecialchars(substr($news['content'], 0, 100)) . '...'; ?>
                         </p>
@@ -37,7 +37,7 @@ include 'includes/header.php';
             </div>
         <?php endforeach; ?>
         <?php if(empty($all_news)): ?>
-            <p class="text-center text-muted w-100">No news articles found.</p>
+            <p class="text-center text-white-50 w-100">No news articles found.</p>
         <?php endif; ?>
     </div>
 </div>
@@ -49,7 +49,7 @@ function renderNews(data) {
     container.innerHTML = '';
 
     if (data.length === 0) {
-        container.innerHTML = '<p class="text-center text-muted w-100">No news found matching your search.</p>';
+        container.innerHTML = '<p class="text-center text-white-50 w-100">No news found matching your search.</p>';
         return;
     }
 
@@ -61,7 +61,7 @@ function renderNews(data) {
                     <img src="${BASE_URL}${item.image_path}" class="card-img-top" alt="News Image" style="height:200px; object-fit:cover;">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-white">${item.title}</h5>
-                        <p class="card-text text-muted small"><i class="bi bi-clock"></i> ${item.date}</p>
+                        <p class="card-text text-white-50 small"><i class="bi bi-clock"></i> ${item.date}</p>
                         <p class="card-text flex-grow-1 text-light">${excerpt}</p>
                         <a href="${item.source_url}" class="btn btn-outline-info mt-auto" target="_blank">Read Source</a>
                     </div>

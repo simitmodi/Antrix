@@ -50,15 +50,15 @@ include 'includes/header.php';
         <div class="row text-center text-accent">
             <div class="col-md-4 mb-3 mb-md-0">
                 <h3 class="display-6 fw-bold"><?php echo $stat_events; ?></h3>
-                <span class="text-muted text-uppercase small">Total Events</span>
+                <span class="text-white-50 text-uppercase small">Total Events</span>
             </div>
             <div class="col-md-4 mb-3 mb-md-0">
                 <h3 class="display-6 fw-bold"><?php echo $stat_launches; ?></h3>
-                <span class="text-muted text-uppercase small">Rocket Launches</span>
+                <span class="text-white-50 text-uppercase small">Rocket Launches</span>
             </div>
             <div class="col-md-4">
                 <h3 class="display-6 fw-bold"><?php echo $stat_users; ?></h3>
-                <span class="text-muted text-uppercase small">Registered Explorers</span>
+                <span class="text-white-50 text-uppercase small">Registered Explorers</span>
             </div>
         </div>
     </div>
@@ -76,14 +76,14 @@ include 'includes/header.php';
                         <div class="card-body">
                             <span class="badge badge-<?php echo htmlspecialchars($event['event_type']); ?> mb-2"><?php echo htmlspecialchars(ucwords(str_replace('_', ' ', $event['event_type']))); ?></span>
                             <h5 class="card-title"><?php echo htmlspecialchars($event['title']); ?></h5>
-                            <p class="card-text text-muted small"><i class="bi bi-calendar"></i> <?php echo date('F j, Y, g:i a', strtotime($event['event_date'])); ?></p>
+                            <p class="card-text text-white-50 small"><i class="bi bi-calendar"></i> <?php echo date('F j, Y, g:i a', strtotime($event['event_date'])); ?></p>
                             <a href="event-detail.php?id=<?php echo $event['id']; ?>" class="btn btn-outline-info btn-sm mt-3">Read More</a>
                         </div>
                     </div>
                 </div>
             <?php endforeach; ?>
             <?php if(empty($upcoming_events)): ?>
-                <p class="text-center text-muted">No upcoming events scheduled at the moment.</p>
+                <p class="text-center text-white-50">No upcoming events scheduled at the moment.</p>
             <?php endif; ?>
         </div>
     </div>
@@ -104,7 +104,7 @@ include 'includes/header.php';
                             <div class="col-8">
                                 <div class="card-body py-1 pr-1">
                                     <h6 class="card-title text-accent mb-1"><?php echo htmlspecialchars($news['title']); ?></h6>
-                                    <p class="card-text small text-muted mb-1"><?php echo htmlspecialchars(substr($news['content'], 0, 50)) . '...'; ?></p>
+                                    <p class="card-text small text-white-50 mb-1"><?php echo htmlspecialchars(substr($news['content'], 0, 50)) . '...'; ?></p>
                                     <a href="<?php echo htmlspecialchars($news['source_url']); ?>" class="text-info small text-decoration-none" target="_blank">Read Full <i class="bi bi-arrow-right"></i></a>
                                 </div>
                             </div>

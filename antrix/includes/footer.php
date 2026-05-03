@@ -1,7 +1,7 @@
     </div> <!-- End main-content-wrapper -->
     
     <footer class="text-center py-4 mt-5">
-        <div class="container text-muted">
+        <div class="container text-white-50">
             <p>&copy; <?php echo date('Y'); ?> Antrix Space Portal. Project for GTU.</p>
         </div>
     </footer>
