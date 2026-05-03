@@ -1,0 +1,103 @@
+# Antrix Local Development Setup Guide
+
+This guide will walk you through setting up the Antrix project on both Windows and macOS for local development.
+
+The project uses PHP, MySQL, and a web server (like Apache or Nginx).
+
+---
+
+## 💻 Windows Setup
+
+### Option 1: Using XAMPP (Recommended for Beginners)
+
+1. **Download XAMPP:**
+   - Go to [apachefriends.org](https://www.apachefriends.org/) and download XAMPP for Windows.
+   - Run the installer with default settings.
+
+2. **Start Services:**
+   - Open the **XAMPP Control Panel**.
+   - Click "Start" next to **Apache** and **MySQL**.
+
+3. **Deploy the Project:**
+   - Navigate to the XAMPP installation directory (usually `C:\xampp\htdocs`).
+   - Copy or clone the entire `Antrix` project folder into the `htdocs` directory.
+   - The path should look like `C:\xampp\htdocs\Antrix`.
+
+4. **Setup the Database:**
+   - Open your web browser and go to `http://localhost/phpmyadmin`.
+   - Click on "Databases" and create a new database named `antrix_db` (or check your database connection file for the exact name).
+   - Select the newly created database, go to the "Import" tab.
+   - Choose the `schema.sql` file located in `Antrix/antrix/schema.sql` and click "Go" at the bottom to import the tables.
+
+5. **Configure Database Connection (If necessary):**
+   - Check the `includes/db.php` or `auth.php` (or similar database configuration file) in your project.
+   - Ensure the credentials match your local setup:
+     - `Host`: localhost
+     - `Username`: root
+     - `Password`: (leave empty for default XAMPP)
+     - `Database`: antrix_db (or the name you chose)
+
+6. **View the Project:**
+   - Open your browser and go to: `http://localhost/Antrix/antrix/`
+
+---
+
+## 🍎 macOS Setup
+
+### Option 1: Using MAMP (Recommended for Beginners)
+
+1. **Download MAMP:**
+   - Go to [mamp.info](https://www.mamp.info/) and download MAMP for macOS.
+   - Install the application.
+
+2. **Start Services:**
+   - Open **MAMP** and click "Start Servers" to run Apache and MySQL.
+
+3. **Deploy the Project:**
+   - In MAMP, go to Preferences > Server to find the "Document Root" (usually `/Applications/MAMP/htdocs`).
+   - Copy or clone the `Antrix` folder into this `htdocs` directory.
+
+4. **Setup the Database:**
+   - Click "Open WebStart page" in MAMP, then click on "Tools" > "phpMyAdmin".
+   - Create a new database (e.g., `antrix_db`).
+   - Go to the "Import" tab, choose the `schema.sql` file from `Antrix/antrix/schema.sql`, and click "Go/Import".
+
+5. **Configure Database Connection:**
+   - Ensure the database connection file in the project (like `includes/db.php`) uses MAMP default credentials:
+     - `Host`: localhost (or 127.0.0.1)
+     - `Username`: root
+     - `Password`: root
+     - `Database`: antrix_db (or the name you chose)
+     - *Note: MAMP sometimes uses port 8889 for MySQL.*
+
+6. **View the Project:**
+   - Open your browser and go to: `http://localhost:8888/Antrix/antrix/` (MAMP's default Apache port is usually 8888).
+
+### Option 2: Using Homebrew (Advanced Users)
+
+1. **Install Homebrew:** Open Terminal and paste:
+   `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+
+2. **Install PHP and MySQL:**
+   ```bash
+   brew install php mysql
+   brew services start php
+   brew services start mysql
+   ```
+
+3. **Secure MySQL and Create Database:**
+   ```bash
+   mysql_secure_installation
+   mysql -u root -p
+   # Inside MySQL prompt:
+   CREATE DATABASE antrix_db;
+   exit;
+   ```
+   - Import the schema: `mysql -u root -p antrix_db < path/to/Antrix/antrix/schema.sql`
+
+4. **Run PHP Built-in Server:**
+   - In Terminal, navigate to your project folder: `cd path/to/Antrix/antrix`
+   - Run the server: `php -S localhost:8000`
+
+5. **View the Project:**
+   - Open your browser and go to: `http://localhost:8000`
